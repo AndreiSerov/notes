@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping(path = ["/api/v1/note"])
+@CrossOrigin("*")
 class NoteController(@Autowired private val service: NoteService) {
 
     @GetMapping
