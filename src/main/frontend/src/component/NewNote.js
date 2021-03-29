@@ -40,11 +40,11 @@ export default class NewNote extends Component {
         })
     }
 
-    handleHeaderChange = (event) => {
+    handleHeaderChange = (event) =>
         this.setState({"noteHeader": event.target.value})
-    }
 
-    handleBodyChange = (event) => {
+
+    handleBodyChange = (event) =>
         this.setState({"noteBody": event.target.value})
-    }
+
 }
