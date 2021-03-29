@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-class Note extends Component {
+export default class Note extends Component {
     state = {
         isOpen: false
     }
@@ -10,10 +10,10 @@ class Note extends Component {
         const body = this.state.isOpen &&
             <div>
                 {note.body}
-                {new Date(note.createDate).toLocaleTimeString()}
+                {this.showHHMM(note.createDate)}
             </div>
         return (
-            <section>
+            <section onClick={this.changeState}>
                 <h2>
                     {note.id}
                     {note.header}
@@ -32,6 +32,9 @@ class Note extends Component {
             isOpen: !this.state.isOpen
         })
     }
-}
 
-export default Note
+    showHHMM(time){
+        const date = new Date(time)
+        return `${date.getHours()}:${date.getMinutes()}`
+    }
+}

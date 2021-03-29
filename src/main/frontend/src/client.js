@@ -2,7 +2,7 @@ export const getAllNotes = () =>
     fetch('http://localhost:8080/api/v1/note')
 
 
-export const addNewNote = note =>
+export const addNewNote = (note) =>
     fetch('http://localhost:8080/api/v1/note', {
         headers: {
             'Content-Type': 'application/json'
