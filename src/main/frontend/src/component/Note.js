@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {deleteStudent} from '../client'
 
 export default class Note extends Component {
     state = {
@@ -20,6 +21,7 @@ export default class Note extends Component {
                     <button onClick={this.changeState}>
                         {this.state.isOpen ? 'close' : 'open'}
                     </button>
+
                 </h2>
                 {body}
             </section>

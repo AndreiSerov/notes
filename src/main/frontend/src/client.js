@@ -11,6 +11,11 @@ export const addNewNote = (note) =>
         body: JSON.stringify(note)
     })
 
+export const deleteStudent = noteId =>
+    fetch(`http://localhost:8080/api/v1/note/delete/${noteId}`, {
+        method: 'DELETE'
+    })
+
 /*
 export const updateStudent = (studentId, note) =>
     fetch(`api/students/${studentId}`, {
@@ -21,12 +26,6 @@ export const updateStudent = (studentId, note) =>
         body: JSON.stringify(note)
     })
         .then(checkStatus);
-
-export const deleteStudent = studentId =>
-    fetch(`api/students/${studentId}`, {
-        method: 'DELETE'
-    })
-        .then(checkStatus);*/
 
 /*
 const checkStatus = response => {

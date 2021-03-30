@@ -13,4 +13,7 @@ class NoteController(@Autowired private val service: NoteService) {
 
     @PostMapping
     fun writeNote(@RequestBody note: Note) = service.writeNote(note)
+
+    @DeleteMapping("/delete/{id}")
+    fun deleteNote(@PathVariable id: Long) = service.deleteNote(id)
 }
