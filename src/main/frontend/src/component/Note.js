@@ -1,10 +1,15 @@
 import React, {Component} from "react";
-import {deleteStudent} from '../client'
 
 export default class Note extends Component {
     state = {
         isOpen: false
     }
+
+
+    // constructor(props, context) {
+    //     super(props, context);
+    //     this.deleteNote = this.deleteNote.bind(this)
+    // }
 
     render() {
         const {note} = this.props
@@ -12,6 +17,7 @@ export default class Note extends Component {
             <div>
                 {note.body}
                 {this.showHHMM(note.createDate)}
+                <button onClick={this.deleteNote}>Delete</button> // should be callback
             </div>
         return (
             <section onClick={this.changeState}>
@@ -21,7 +27,6 @@ export default class Note extends Component {
                     <button onClick={this.changeState}>
                         {this.state.isOpen ? 'close' : 'open'}
                     </button>
-
                 </h2>
                 {body}
             </section>
@@ -38,5 +43,10 @@ export default class Note extends Component {
     showHHMM(time){
         const date = new Date(time)
         return `${date.getHours()}:${date.getMinutes()}`
+    }
+
+    deleteNote = () => {
+        this.props.delNote(this.props.note.id)
+        // console.log(this)
     }
 }

@@ -11,7 +11,7 @@ export const addNewNote = (note) =>
         body: JSON.stringify(note)
     })
 
-export const deleteStudent = noteId =>
+export const deleteNote = noteId =>
     fetch(`http://localhost:8080/api/v1/note/delete/${noteId}`, {
         method: 'DELETE'
     })

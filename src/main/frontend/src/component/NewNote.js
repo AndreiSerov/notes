@@ -6,6 +6,8 @@ export default class NewNote extends Component {
         isOpen: false
     }
 
+    actions = { addNewNote }
+
     render() {
         const body = this.state.isOpen &&
             <div>
@@ -25,13 +27,13 @@ export default class NewNote extends Component {
         )
     }
 
-    createNewNote = () => {
+    createNewNote = async () => {
         const note = {
             'header': this.state.noteHeader,
             'body': this.state.noteBody
         }
-        console.log(note);
-        addNewNote(note).then(res => console.log(res))
+        console.log(note)
+        await this.props.addNote(note)
     }
 
     changeState = () => {
