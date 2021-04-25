@@ -15,5 +15,9 @@ class NoteController(@Autowired private val service: NoteService) {
     fun writeNote(@RequestBody note: Note) = service.writeNote(note)
 
     @DeleteMapping("/delete/{id}")
-    fun deleteNote(@PathVariable id: Long) = service.deleteNote(id)
+    @ResponseBody
+    fun deleteNote(@PathVariable id: Long): String {
+        service.deleteNote(id)
+        return "{$id: true}"
+    }
 }

@@ -1,0 +1,30 @@
+version: '3'
+services:
+
+  postgres:
+    image: "postgres:9.6-alpine"
+    container_name: postgres
+    volumes:
+      - data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=note
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+
+  notebooks:
+    build: .
+    container_name: notebooks
+    environment:
+      - DB_SERVER=postgres
+      - POSTGRES_DB=note
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - 8080:8080
+    links:
+      - postgres
+
+volumes:
+  data:

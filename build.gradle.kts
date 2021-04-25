@@ -3,10 +3,12 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "2.4.4"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    jacoco
     war
     kotlin("jvm") version "1.4.31"
     kotlin("plugin.spring") version "1.4.31"
     kotlin("plugin.jpa") version "1.4.31"
+    id("org.liquibase.gradle") version "2.0.4"
 }
 
 group = "ru.serov"
@@ -46,3 +48,17 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+
+jacoco {
+    toolVersion = "0.8.6"
+    reportsDirectory.set(file("$buildDir/customJacocoReportDir"))
+}
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
+}
+tasks.jacocoTestReport {
+    dependsOn(tasks.test) // tests are required to run before generating the report
+}
+
+
