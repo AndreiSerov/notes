@@ -1,0 +1,27 @@
+body {
+    padding: 0;
+    display: flex;
+    margin: 0 auto;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+#root {
+    margin: 0 auto;
+}
+
+.note-list {
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto;
+    /*padding: 30px;*/
+    flex: 1 1 0;
+}
+.new-note *  {
+    display: block;
+    padding: 5px;
+    width: 300px;
+    -moz-box-sizing: content-box; /* or `border-box` */
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}

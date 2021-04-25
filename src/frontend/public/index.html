@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Note</title>
+    <link rel="stylesheet" href="styles.css">
+    <!--    <link rel="stylesheet" href="styles.css">-->
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root">
+    <header class="header" id="header">
+        <div class="container">
+            <h1 class="title">Note List</h1>
+        </div>
+    </header>
+    <section id="content" class="note-list content">
+        <div class="new-note">
+            <button class="open-form">
+                Add new
+            </button>
+            <label for="new-note-header">
+                <input id="new-note-header" type="text" class="note-header">
+            </label>
+            <label for="new-note-body">
+                <textarea name="note-body" id="new-note-body" cols="30"
+                          rows="10">Your message</textarea>
+            </label>
+            <button id="confirm-new">Create Note</button>
+        </div>
+    </section>
+</div>
+</body>
+</html>
